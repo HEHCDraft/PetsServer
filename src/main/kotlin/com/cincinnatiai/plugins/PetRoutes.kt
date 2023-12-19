@@ -41,7 +41,7 @@ internal fun Route.petsRouting() {
             } catch (e: BadRequestException) {
                 call.respondText(
                     text = e.rootCause!!.localizedMessage,
-                    status = HttpStatusCode.Conflict
+                    status = HttpStatusCode.BadRequest
                 )
                 return@post
             }
@@ -70,7 +70,7 @@ internal fun Route.petsRouting() {
                 )
             } else {
                 call.respondText(
-                    text = "Not Found",
+                    text = "Pet ID Not Found",
                     status = HttpStatusCode.NotFound
                 )
             }
